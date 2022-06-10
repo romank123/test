@@ -2,10 +2,6 @@ import $ from 'jquery'
 window.bootstrap = require('bootstrap')
 
 $(document).ready(function () {
-  // $('.nav-link-collapse').on('click', function () {
-  //   $('.nav-link-collapse').not(this).removeClass('nav-link-show')
-  //   $(this).toggleClass('nav-link-show')
-  //})
 
   let modal = new bootstrap.Modal(document.getElementById('staticBackdrop'))
 
@@ -25,6 +21,17 @@ $(document).ready(function () {
   })
 
   function getUsdCourse() {
+    $.ajax({
+      type: 'get',
+      dataType: 'json',
+      url: 'https://iss.moex.com/iss/statistics/engines/currency/markets/selt/rates.json?iss.meta=off',
+      success: function (data) {
+        $('.btn-wrapper').append(`<p class="mb-0" style="color: white; margin: 0 15px">курс 1$ = ${data.cbrf.data[0][0]}р.</p>`)
+      }
+    })
+  }
+
+  function getUsdCourseXML() {
     $.ajax({
       type: 'POST',
       dataType: 'xml',
