@@ -1,0 +1,82 @@
+doctype html
+html(lang='ru')
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='x-ua-compatible', content='ie=edge')
+    title
+    meta(name='description', content='')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+  body
+    nav.navbar.navbar-expand-lg.navbar-dark.bg-primary
+      .container-fluid
+        a.navbar-brand(href='#')
+          img(src="images/bootstrap-logo.svg" alt="logo" width="30px")
+        .btn-wrapper.d-flex.justify-content-end.flex-grow-1
+          button.btn.btn-primary.ms-auto.me-0.btn-login Логин
+        button.navbar-toggler(type='button', data-bs-toggle='collapse', data-bs-target='#navbarTogglerDemo02', aria-controls='navbarTogglerDemo02', aria-expanded='false', aria-label='Toggle navigation')
+          span.navbar-toggler-icon
+        .collapse.navbar-collapse#navbarTogglerDemo02
+              ul.navbar-nav.mr-auto.sidenav.bg-light#navAccordion
+                li.nav-item.active
+                  a.nav-link(href='#')
+                    | Главная
+                li.nav-item
+                  a.nav-link(href='#') Стр.1
+                li.nav-item
+                  a.nav-link.nav-link-collapse.collapsed#hasSubItems1(href='#', data-bs-toggle='collapse', data-bs-target='#collapseSubItems2', aria-controls='collapseSubItems2', aria-expanded='false') Стр.2
+                  ul.nav-second-level.collapse#collapseSubItems2(data-parent='#navAccordion')
+                    li.nav-item
+                      a.nav-link(href='#')
+                        span.nav-link-text Стр. 2.1
+                    li.nav-item
+                      a.nav-link(href='#')
+                        span.nav-link-text Стр. 2.2
+                li.nav-item
+                  a.nav-link(href='#') Стр.3
+                li.nav-item
+                  a.nav-link.nav-link-collapse.collapsed#hasSubItems(href='#', data-bs-toggle='collapse', data-bs-target='#collapseSubItems4', aria-controls='collapseSubItems4', aria-expanded='false') Стр. 4
+                  ul.nav-second-level.collapse#collapseSubItems4(data-parent='#navAccordion')
+                    li.nav-item
+                      a.nav-link(href='#')
+                        span.nav-link-text Стр. 4.1
+                    li.nav-item
+                      a.nav-link(href='#')
+                        span.nav-link-text Стр. 4.2
+                    li.nav-item
+                      a.nav-link(href='#')
+                        span.nav-link-text Стр. 4.2
+                li.nav-item
+                  a.nav-link(href='#') Стр. 5
+
+    main.content-wrapper
+      .container-fluid
+        h1 Главный заголовок
+        p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus ipsa perspiciatis reiciendis voluptatem!
+        |Adipisci, aliquid, quas! Corporis illum quasi suscipit?
+
+    footer.footer.bg-light
+      .container
+        .text-center
+          span
+            p footer content
+
+  //  Модальное окно
+  .modal.fade#staticBackdrop(tabindex='-1', aria-labelledby='staticBackdropLabel', aria-hidden='true')
+    .modal-dialog.modal-dialog-centered
+      .modal-content
+        .modal-header
+          h5.modal-title Введите имя пользователя
+          button.btn-close(type='button', data-bs-dismiss='modal', aria-label='Закрыть')
+        .modal-body
+          form#Signin-Form(method='post', role='form')
+            .form-group.mb-4
+              .input-group
+                .input-group-addon
+                  span.glyphicon.glyphicon-envelope
+                input#user.form-control.input-lg(name='user', type='text', placeholder='Имя пользователя', required)
+            .d-flex.justify-content-end
+              button.btn.btn-success.btn-block.me-2(type='submit') Вход
+              button.btn.btn-secondary(type='button', data-bs-dismiss='modal') Закрыть
+
+
+
